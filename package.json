@@ -9,10 +9,6 @@
     "test": "node test.js"
   },
   "dependencies": {
-    "imagemin": "^8.0.1",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^9.0.2",
-    "images": "^3.2.4",
     "puppeteer": "^21.0.3"
   }
 }

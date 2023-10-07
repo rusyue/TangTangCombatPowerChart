@@ -136,32 +136,4 @@ const renderWebScreenshot = () => {
     })
 }
 
-
-(async () => {
-    // 压缩图片体积
-    const screenshotFilename = await renderWebScreenshot()
-
-    try {
-        console.log('filename => ', screenshotFilename)
-
-        const imagemin = await import('imagemin').then(m => m.default);
-        const imageminPngquant = await import('imagemin-pngquant').then(m => m.default);
-
-        const files = await imagemin([`dist/${screenshotFilename}.png`], {
-            destination: `compressed`,
-            plugins: [
-                imageminPngquant({
-                    quality: [0.85, 0.85]
-                })
-            ]
-        });
-
-        console.log('Images optimized:', files);
-
-        console.log('图片已压缩2')
-    } catch (error) {
-        console.log('压缩出错：', error)
-    }
-})()
-
-
+renderWebScreenshot()
