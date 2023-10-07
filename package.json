@@ -1,0 +1,18 @@
+{
+  "name": "tangtang_combat_power_chart",
+  "version": "1.0.0",
+  "main": "render.js",
+  "author": "zinlone",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node render.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "images": "^3.2.4",
+    "puppeteer": "^21.0.3"
+  }
+}

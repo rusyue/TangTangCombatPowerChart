@@ -1,0 +1,298 @@
+@font-face {
+  font-family: "AaJianHaoTi";
+  src: url("assets/fonts/AaJianHaoTi.subset.ttf") format("opentype");
+}
+@font-face {
+  font-family: "HYRunYuan-55W";
+  src: url("assets/fonts/HYRunYuan-55W.ttf") format("opentype");
+}
+@font-face {
+  font-family: "Chomsky";
+  src: url("assets/fonts/Chomsky.otf") format("opentype");
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: transparent;
+  color: #fff;
+}
+h1,
+h2,
+h3 {
+  width: 1000px;
+  text-align: center;
+  margin: 0;
+}
+.hide {
+  opacity: 0;
+}
+.splitter {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+.splitter-line {
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #ccc;
+}
+.splitter-left {
+  left: 0;
+  margin-left: -20%;
+}
+.splitter-right {
+  right: 0;
+  margin-right: -20%;
+}
+.splitter-content {
+  display: inline-block;
+  padding: 0 20px;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+html {
+  width: 1000px;
+  height: 2800px;
+}
+#main-wrapper {
+  width: 1000px;
+  height: 2800px;
+  background-image: url("assets/img/bg.png");
+  background-color: transparent;
+}
+.wrapper {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+header {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  margin-bottom: 10px;
+}
+header .avatar {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 30px;
+  left: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.5);
+  border: 4px solid #fee;
+  box-sizing: border-box;
+}
+header .avatar img {
+  width: 100%;
+  height: auto;
+}
+header .title {
+  font-size: 32px;
+  font-weight: bold;
+  height: 150px;
+  line-height: 150px;
+}
+header .extra-info {
+  font-size: 20px;
+  text-align: center;
+  height: 30px;
+  line-height: 28px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+header .extra-info .username {
+  position: absolute;
+  text-align: center;
+  top: 166px;
+  left: 10px;
+  width: 200px;
+  height: 40px;
+}
+header .extra-info .username,
+header .extra-info .username span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #eae8e7;
+  text-shadow: 0px 0px 3px #ff5d04aa, 0px 0px 3px #ff5d04cc, 0px 0px 3px #ff5d04ff, 0px 0px 2px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-family: "HYRunYuan-55W", sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+}
+header .extra-info .update-time {
+  color: rgba(238, 197, 102, 0.68);
+  font-family: "HYRunYuan-55W", sans-serif;
+  font-size: 14px;
+  margin-left: 24px;
+  position: relative;
+  top: 3px;
+}
+header .extra-info span#update-time {
+  letter-spacing: 1px;
+}
+header + .splitter {
+  background-color: transparent;
+}
+main {
+  padding-top: 50px !important;
+}
+main .combat-power-wrapper {
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+main .combat-power-wrapper div,
+main .combat-power-wrapper p,
+main .combat-power-wrapper span {
+  font-size: 38px;
+}
+main .combat-power-wrapper p {
+  color: #999;
+}
+main .combat-power-wrapper .combat-power-num {
+  width: 1000px;
+  position: relative;
+  padding: 0;
+  color: rgba(0, 0, 0, 0);
+  font-size: 145px;
+  text-align: center;
+  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
+  font-weight: bold;
+  font-family: "Chomsky", "AaJianHaoTi", "Roboto Serif", sans-serif;
+}
+main .combat-power-wrapper #combat-power {
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  z-index: 99;
+  background-clip: text;
+  background-image: linear-gradient(180deg, #ffa900 35%, #e70b4e 75%, rgba(255, 0, 0, 0.685));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+main .combat-power-wrapper #combat-power-shadow {
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  z-index: 98;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.2), 3px 3px 9px rgba(0, 0, 0, 0.3), 4px 4px 12px rgba(0, 0, 0, 0.4);
+}
+main .combat-power-wrapper .combat-power-num::after {
+  display: block;
+  content: "233";
+  position: absolute;
+  right: -2em;
+  top: 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #eae8e7;
+  text-shadow: 0px 0px 3px #ff5d04aa, 0px 0px 3px #ff5d04cc, 0px 0px 3px #ff5d04ff, 0px 0px 2px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-family: "HYRunYuan-55W", sans-serif;
+  font-size: 40px;
+}
+main ul.rank-info li {
+  position: fixed;
+  list-style: none;
+  color: #b89952;
+  font-size: 21px;
+  font-family: "HYRunYuan-55W", sans-serif;
+  border: 1px red solid;
+  border-color: transparent;
+  box-sizing: border-box;
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  top: 518px;
+  color: #eae8e7;
+  text-shadow: 0px 0px 3px #ff5d04aa, 0px 0px 3px #ff5d04cc, 0px 0px 3px #ff5d04ff, 1px 1px 2px rgba(0, 0, 0, 0.3), 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+main ul.rank-info li.rank-group {
+  width: 50px;
+  left: 378px;
+}
+main ul.rank-info li.rank-all {
+  left: 712px;
+  width: 70px;
+}
+main .chart-wrapper {
+  width: 1000px;
+}
+main .radar-chart {
+  height: 960px;
+  padding: 20px;
+  margin-top: 55px;
+}
+main .radar-chart #radar-chart-container {
+  width: 960px;
+  height: 960px;
+}
+main .gear-lv90-count {
+  color: #eae8e7;
+  position: fixed;
+  width: 70px;
+  height: 38px;
+  border: 1px red solid;
+  border-color: transparent;
+  top: 1712px;
+  left: 524px;
+  text-align: center;
+  line-height: 38px;
+  box-sizing: border-box;
+  text-shadow: 0px 0px 3px #ff5d04aa, 0px 0px 3px #ff5d04cc, 0px 0px 3px #ff5d04ff, 0px 0px 2px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  font-family: 'HYRunYuan-55W';
+  /* left: 373px; */
+}
+main .bar-chart {
+  width: 1000px;
+  height: auto;
+  margin-top: 50px;
+}
+main .bar-chart #bar-chart-container {
+  width: 950px;
+  min-height: 1050px;
+}
+footer {
+  display: block;
+}
+footer .footer-wrapper {
+  width: 1000px;
+  border: 1px solid #666;
+}

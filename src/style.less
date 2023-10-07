@@ -1,0 +1,456 @@
+// 全局变量
+
+@main-width : 1000px;
+@main-height : 2800px;
+// @main-height : 3000px;
+
+@extra-info-color: rgba(238, 197, 102, 0.68);
+@extra-info-font: "HYRunYuan-55W", sans-serif;
+
+
+// 混合片段
+.split() {
+    border-bottom: 2px solid red;
+}
+
+.float-left() {
+    float: left;
+}
+
+.float-right() {
+    float: right;
+}
+
+.clearfix() {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.ellipsis-text() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+}
+
+// 字体优化
+.text-optimize() {
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.text-shadow() {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+        2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+// 本地字体
+@font-face {
+    font-family: "AaJianHaoTi";
+    src: url("assets/fonts/AaJianHaoTi.subset.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: "HYRunYuan-55W";
+    src: url("assets/fonts/HYRunYuan-55W.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: "Chomsky";
+    src: url("assets/fonts/Chomsky.otf") format("opentype");
+}
+
+// ============= 样式开始 =============
+
+// ------------- 全局 & 主体 -------------
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+    color: #fff;
+}
+
+h1,
+h2,
+h3 {
+    width: @main-width;
+    text-align: center;
+    margin: 0;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.splitter {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.splitter-line {
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.splitter-left {
+    left: 0;
+    margin-left: -20%;
+}
+
+.splitter-right {
+    right: 0;
+    margin-right: -20%;
+}
+
+.splitter-content {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.float-left {
+    .float-left();
+}
+
+.float-right {
+    .float-right();
+}
+
+.clearfix {
+    .clearfix();
+}
+
+
+// ------------- 图表、容器 -------------
+html {
+    width: @main-width;
+    height: @main-height;
+}
+
+#main-wrapper {
+    width: @main-width;
+    height: @main-height;
+    background-image: url("assets/img/bg.png");
+    background-color: transparent;
+}
+
+.wrapper {
+    width: @main-width;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    .clearfix();
+}
+
+
+// ------------- 顶部区域：标题、游戏LOGO -------------
+header {
+    @title-area-height: 150;
+    @extra-info-height: 30;
+    @header-height: (@title-area-height + @extra-info-height);
+
+    @avatar-size: 120;
+    @avatar-width: @avatar-size;
+    @avatar-height: @avatar-size;
+    @avatar-top: ((@header-height - @avatar-size) / 2);
+    @avatar-left: ((@header-height - @avatar-size) / 2 + 20); // marginleft:20
+
+    & {
+        position: relative;
+        width: 100%;
+        height: unit(@header-height, px);
+    }
+
+    .avatar {
+        position: absolute;
+        width: unit(@avatar-width, px);
+        height: unit(@avatar-height, px);
+        top: unit(@avatar-top, px);
+        left: unit(@avatar-left, px);
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.5);
+        border: 4px solid #fee;
+        box-sizing: border-box;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .title {
+        font-size: 32px;
+        font-weight: bold;
+        height: unit(@title-area-height, px);
+        line-height: unit(@title-area-height, px);
+    }
+
+    .extra-info {
+        font-size: 20px;
+        // color: #999;
+        text-align: center;
+        height: unit(@extra-info-height, px);
+        line-height: unit(@extra-info-height - 2, px);
+
+        .text-shadow();
+
+        .username {
+            @margin-top: 6;
+            @margin-left: 10;
+            @width: (@avatar-left*2 + @avatar-width - @margin-left*2); // avatar.left*2 + avatar.width
+            @height: 40;
+            @top: (@avatar-size + @height + @margin-top);
+            @left: (0 + @margin-left); // avatar.left + marginLeft
+            position: absolute;
+            text-align: center;
+            top: unit(@top, px);
+            left: unit(@left, px);
+            width: unit(@width, px);
+            height: unit(@height, px);
+            // overflow: hidden;
+
+            &,
+            span {
+                .ellipsis-text();
+                .text-optimize();
+
+                color: rgb(234, 232, 231);
+
+                text-shadow: 0px 0px 3px #ff5d04aa,
+                    0px 0px 3px #ff5d04cc,
+                    0px 0px 3px #ff5d04ff,
+                    0px 0px 2px rgba(0, 0, 0, 0.3),
+                    1px 1px 2px rgba(0, 0, 0, 0.2);
+
+                font-family: @extra-info-font;
+                font-size: unit((@height/2), px);
+                line-height: unit((@height/2 + 4), px);
+            }
+        }
+
+        .update-time {
+            color: @extra-info-color;
+            font-family: @extra-info-font;
+            font-size: 14px;
+            margin-left: 24px;
+            position: relative;
+            top: 3px;
+        }
+
+        span#update-time {
+            letter-spacing: 1px;
+        }
+    }
+
+    & {
+        margin-bottom: 10px;
+    }
+
+    &+.splitter {
+        background-color: transparent;
+    }
+}
+
+// ------------- 主体区域：图表、战力、用户信息 -------------
+main {
+    padding-top: 50px !important;
+
+    .combat-power-wrapper {
+        height: 300px;
+        line-height: 300px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+
+        div,
+        p,
+        span {
+            font-size: 38px;
+        }
+
+        p {
+            color: #999;
+        }
+
+        .combat-power-num {
+            width: 1000px;
+            position: relative;
+            padding: 0;
+            color: rgba(0, 0, 0, 0);
+            // font-size: 138px;
+            font-size: 145px;
+            text-align: center;
+            letter-spacing: 0.12em;
+            letter-spacing: 0.22em;
+            font-weight: bold;
+            font-family: "Chomsky", "AaJianHaoTi", "Roboto Serif", sans-serif;
+        }
+
+        // 微调战力数值的位置使其视觉上居中对齐
+        @cpv-left: 12px;
+
+        #combat-power {
+            position: absolute;
+            top: 0px;
+            left: @cpv-left;
+            z-index: 99;
+            background-clip: text;
+            background-image: linear-gradient(180deg, #ffa900 35%, #e70b4e 75%, rgba(255, 0, 0, 0.685));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #combat-power-shadow {
+            position: absolute;
+            top: 0px;
+            left: @cpv-left;
+            z-index: 98;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1),
+                2px 2px 6px rgba(0, 0, 0, 0.2),
+                3px 3px 9px rgba(0, 0, 0, 0.3),
+                4px 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        // div.combat-power-num::after {
+        .combat-power-num::after {
+        // div#combat-power-increment {
+            display: block;
+
+            content: "233";
+
+            position: absolute;
+            right: -2em;
+            top: 1em;
+
+            
+            .ellipsis-text();
+            .text-optimize();
+
+            color: rgb(234, 232, 231);
+
+            text-shadow: 0px 0px 3px #ff5d04aa,
+                0px 0px 3px #ff5d04cc,
+                0px 0px 3px #ff5d04ff,
+                0px 0px 2px rgba(0, 0, 0, 0.3),
+                1px 1px 2px rgba(0, 0, 0, 0.2);
+
+            font-family: @extra-info-font;
+            font-size: 40px;
+        }
+    }
+
+    ul.rank-info {
+        li {
+            position: fixed;
+            list-style: none;
+            color: #b89952;
+            // letter-spacing: 1px;
+            top: 518px;
+            font-size: 21px;
+            font-family: @extra-info-font;
+            // .text-shadow();
+            border: 1px red solid;
+            border-color: transparent;
+            box-sizing: border-box;
+            text-align: center;
+            height: 24px;
+            line-height: 24px;
+            top: 518px;
+            // font-size: 28px;
+            color: rgb(234, 232, 231);
+            text-shadow: 0px 0px 3px #ff5d04aa,
+                0px 0px 3px #ff5d04cc,
+                0px 0px 3px #ff5d04ff,
+                1px 1px 2px rgba(0, 0, 0, 0.3),
+                2px 2px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        li.rank-group {
+            width: 50px;
+            left: 378px;
+        }
+
+        li.rank-all {
+            left: 712px;
+            width: 70px;
+        }
+    }
+
+    .chart-wrapper {
+        width: @main-width;
+    }
+
+
+    // 雷达图样式
+    .radar-chart {
+        @radar-padding: 20;
+        @radar-margin-top: 55;
+        @radar-chart-size: @main-width - @radar-padding*2;
+        height: unit(@radar-chart-size, px);
+        padding: unit(@radar-padding, px);
+        margin-top: unit(@radar-margin-top, px);
+
+        // 雷达图容器
+        #radar-chart-container {
+            width: unit(@radar-chart-size, px);
+            height: unit(@radar-chart-size, px);
+        }
+    }
+
+    // 90装数量
+    .gear-lv90-count {
+        color: rgb(234, 232, 231);
+        position: fixed;
+        width: 70px;
+        height: 38px;
+        border: 1px red solid;
+        border-color: transparent;
+        top: 1712px;
+        left: 524px;
+        text-align: center;
+        line-height: 38px;
+        box-sizing: border-box;
+        text-shadow: 0px 0px 3px #ff5d04aa,
+            0px 0px 3px #ff5d04cc,
+            0px 0px 3px #ff5d04ff,
+            0px 0px 2px rgba(0, 0, 0, 0.3),
+            1px 1px 2px rgba(0, 0, 0, 0.2);
+        font-size: 20px;
+        font-family: 'HYRunYuan-55W';
+        /* left: 373px; */
+    }
+
+    // 柱状图样式
+    .bar-chart {
+        @bar-chart-size : @main-width - 50px;
+
+        width: @main-width;
+        height: auto;
+        margin-top: 50px;
+
+        #bar-chart-container {
+            width: @bar-chart-size;
+            min-height: @bar-chart-size + 100px;
+        }
+    }
+}
+
+// ------------- 底部区域：团名、联系方式、二维码 -------------
+footer {
+    display: block;
+
+    .footer-wrapper {
+        width: @main-width;
+        border: 1px solid #666;
+    }
+}

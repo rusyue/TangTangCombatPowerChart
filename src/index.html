@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>糖糖战力表</title>
+    <link rel="stylesheet" href="lib/css/normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="main-wrapper" class="main-wrapper wrapper">
+        <header class="wrapper">
+            <div class="title hide">
+                <h1>糖糖战力表</h1>
+            </div>
+
+            <div class="avatar">
+                <img id="avatar" alt="avatar" src="assets/img/avatar.png">
+            </div>
+
+            <div class="extra-info">
+                <span class="username" id="username">
+                    <span class="text">无神论者丽迪卡</span>
+                </span>
+                <span class="update-time">更新时间：<span id="update-time">2023年15月25日</span></span>
+            </div>
+
+        </header>
+
+        <main class="wrapper">
+            <!-- 分隔线 -->
+            <div class="splitter hide">
+                <hr class="splitter-line splitter-left"></hr>
+                <h3 class="splitter-content">玩家战斗力</h3>
+                <hr class="splitter-line splitter-right"></hr>
+            </div>
+
+            <!-- 战力数值展示 -->
+            <div class="combat-power-wrapper wrapper">
+                <div id="combat-power" class="combat-power-num">1024</div>
+                <!-- <div class="combat-power-num"> <span id="combat-power">1024</span> </div> -->
+                <div id="combat-power-shadow" class="combat-power-num">1024</div>
+            </div>
+
+            <ul class="rank-info wrapper">
+                <li id="rank-group" class="rank-group">10</li>
+                <li id="rank-all" class="rank-all">2333</li>
+            </ul>
+
+            <!-- 分隔线 -->
+            <div class="splitter hide">
+                <hr class="splitter-line splitter-left"></hr>
+                <h3 class="splitter-content">装备类型分析</h3>
+                <hr class="splitter-line splitter-right"></hr>
+            </div>
+
+            <!-- 装备数据图表 -->
+            <div class="chart-wrapper wrapper">
+                <!-- Echarts雷达图渲染区域 -->
+                <div class="radar-chart">
+                    <div id="radar-chart-container">
+                        <!-- 雷达图容器 -->
+                    </div>
+                </div>
+
+                <!-- 分隔线 -->
+                <div class="splitter hide">
+                    <hr class="splitter-line splitter-left"></hr>
+                    <h3 class="splitter-content">装备数量统计</h3>
+                    <hr class="splitter-line splitter-right"></hr>
+                </div>
+
+
+                <div class="gear-lv90-count">
+                    <span class="gear-lv90-count" id="gear-lv90-count"> 1479 </span>
+                </div>
+
+                <!-- Echarts柱状图渲染区域 -->
+                <div class="bar-chart">
+                    <div id="bar-chart-container">
+                        <!-- 柱形图容器 -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="splitter"><!-- 分隔线 --></div>
+
+        <footer class="wrapper">
+            <!-- 底栏 -->
+        </footer>
+    </div>
+
+    <!-- 引入JS渲染ECharts图表：仅调试时启用 -->
+    <script src="script.js"></script>
+</body>
+
+</html>
