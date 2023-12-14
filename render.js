@@ -2,8 +2,8 @@ const puppeteer = require('puppeteer')
 const path = require('path')
 
 const browserOptions = {
-    debug: false,
-    // debug: true,
+    // debug: false,
+    debug: true,
     viewport: {
         width: 1000,
         height: 2800
@@ -86,7 +86,7 @@ const defaultUserData = [
 // 获取命令行传递的 JSON 字符串参数，解析为 js 对象
 const jsonStr = process.argv[2]
 
-let userData;
+let userData
 
 try {
     userData = JSON.parse(jsonStr)
@@ -94,7 +94,7 @@ try {
     userData = defaultUserData
 
     console.warn(`\n警告：传入参数非标准JSON字符串，将使用预设数据生成图片 => ${error.message}\n`)
-    console.log(jsonStr)
+    console.log(`JSON:${jsonStr}`)
 }
 
 const renderWebScreenshot = () => {

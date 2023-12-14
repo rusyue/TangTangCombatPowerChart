@@ -1,7 +1,7 @@
 // 获取用户数据
 // USER_DATA 是 render.js 传来的全局变量
 
-let userData;
+let userData
 
 try {
     userData = USER_DATA
